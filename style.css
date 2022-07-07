@@ -1,0 +1,60 @@
+
+*{
+    margin: 0px;
+}
+
+.white{
+    color: white;
+}
+
+
+#cardbox a{
+    text-decoration: none;
+    color: black;
+}
+.card .row{
+    display:flex;
+    flex-direction: row-reverse;
+}
+ .card img{
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* 
+@media(max-width:800px){
+
+
+    .js{
+
+        max-width: fit-content !important;
+        width: 100%;
+    }
+
+    .card img{
+       max-width: 150px;
+       max-height: 150px;
+    }
+    
+
+} */
+
+#contactform{
+    background-color: aqua;
+    opacity: 0.9;
+    border: 2px solid gray;
+    padding-bottom: 40px;
+    border-radius: 20px;
+}
+
+
+#checkuser{
+    margin: 2px;
+    height:10px
+}
+
+@media(max-width: 1175px){
+    #cardbox{
+    justify-content: center;
+    }
+}

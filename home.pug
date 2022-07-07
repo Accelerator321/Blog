@@ -1,0 +1,44 @@
+extends index.pug
+
+block content
+
+  h3.mt-4.text-center Recent Blogs
+  #cardbox.d-flex.flex-row.flex-wrap(style='min-width: 240px;')
+    .card.mb-3.mx-4.my-5(style='max-width: 540px;')
+      .row.g-0
+        .col-md-4.d-flex.justify-content-center
+          img.img-fluid.rounded-start(src='/static/py.webp' alt='...')
+        .col-md-8
+          .card-body
+            h1.card-title Learn Python
+            p.card-text
+              | In this blog we will learn python Python is one of the well known languages
+              | . Python is famous for its flexibility
+            p.card-text
+              small.text-muted Last updated 3 mins ago
+
+    .card.mb-3.mx-4.my-5(style='max-width: 540px;')
+      .row.g-0
+        .col-md-4.d-flex.justify-content-center
+          img.js.img-fluid.rounded-start(src='/static/js.png' alt='...' style='width:100%')
+        .col-md-8
+          .card-body
+            h5.card-title Card title
+            p.card-text
+              | This is a wider card with supporting text below as a natural lead-in to additional
+              | content. This content is a little bit longer.
+            p.card-text
+              small.text-muted Last updated 3 mins ago
+
+    .card.mb-3.mx-4.my-5(style='max-width: 540px;')
+      .row.g-0
+        .col-md-4.d-flex.justify-content-center
+          img.img-fluid.rounded-start(src='/static/c++.png' alt='...')
+        .col-md-8
+          .card-body
+            h5.card-title Card title
+            p.card-text
+              | This is a wider card with supporting text below as a natural lead-in to additional
+              | content. This content is a little bit longer.
+            p.card-text
+              small.text-muted Last updated 3 mins ago

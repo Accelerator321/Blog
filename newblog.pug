@@ -1,0 +1,35 @@
+extends index.pug
+
+block content
+    //- form#blogcontent(enctype='multipart/form-data')
+    //-     .headingblock.my-2(style='width:90%;margin:auto;')
+    //-         |Enter Title:
+    //-         textarea#heading(name="title", cols="20", rows="1", style='width:100%;margin:auto;')
+
+    //-     .imageblock.my-2(style='width:90%;margin:auto;')
+    //-         |Add Image:
+    //-         input(type="file" style='width:100%;margin:auto; border:2px solid grey;')
+     link(rel='stylesheet' href='../static/style2.css')
+    .d-flex.justify-content-center.my-2(style="width:100%;")
+        form.row.g-3#blogcontent(style='width: 100%;' method="POST" enctype='multipart/form-data' action='/users/newblog')
+            .col-md-12
+                label.form-label Enter Title
+                input.form-control(type='text' name='title' required='')
+            .col-md-12
+                label.form-label Add Image
+                input.form-control(type='file' required='' name='image')
+            
+            .col-md-12
+                label.form-label Enter Text
+               
+                textarea.form-control(rows="10" required='' name='text')
+            button.btn.btn-primary.mx-2.my-1#creatbtn Creat
+
+    
+                //- button.btn.btn-primary#signupbtn(type='submit' style='max-width: 100px;') Sign up
+    //- button.btn.btn-primary.mx-2.my-1#imgbtn Add Image
+    //- button.btn.btn-primary.mx-2.my-1#headbtn Add Heading
+    //- button.btn.btn-primary.mx-2.my-1#textbtn Add Text
+    //- script(src='../static/project2.js')
+    
+

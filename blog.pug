@@ -1,0 +1,13 @@
+extends index.pug
+
+block content
+    //- #myblog.d-flex.justify-content-center.flex-column.container-md
+    //-     h1(style='text-align:center') #{blog.title}
+    //-     img(src=`${blog.image}`, alt="...." style='width:100%;max-height:150vh;margin:auto')
+    //-     div(style='word-wrap: break-word;') #{blog.text}
+        
+    .card.d-flex.justify-content-center.flex-column.container-lg#myblog.my-4(style='background-color: #d2d2c7')
+      h1(style='text-align:center; background-color:#212529; color:white; padding:24px;' ) #{blog.title}
+      img(src=`${blog.image}`, alt='...' style='height:20rem')
+      .card-body
+        p.card-text #{blog.text}
