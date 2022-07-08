@@ -1,24 +1,25 @@
 extend index.pug
 //- static/img/1656071606915-geass.png
 block content 
-    .card.my-2(style='max-width: 50rem;margin:auto;')
-      #box.d-inline-flex
-        img(src=`${user.avatar}`, alt='...' , style='height:250px; min-width:70px; max-width:250px;')
-        #smallbox.mx-2
-            h1.container Hello #{user.username}
-            p
-                | We welcome you to our website
-      ul.list-group.list-group-flush
-        li.list-group-item Username: #{user.username}
-        li.list-group-item Email : #{user.email}
+      
+      
 
-    a.btn.btn-primary.m-5(href='/users/newblog') Creat A Blog
 
-    //- #blogsdiv
+      .card.my-2.d-flex.flex-wrap#profileblock(style='max-width: 50rem;margin:auto;')
+        #box.d-inline-flex.flex-wrap
+          img#profilepic(src=`${user.avatar}`, alt='...' , style='height:250px; min-width:70px; max-width:250px;')
+          #smallbox.mx-2.d-flex.flex-column
+              ul.list-group.list-group-flush
+                li.list-group-item Username: #{user.username}
+                li.list-group-item Email : #{user.email}
 
-    table.table#blogsdiv.container(style="width:90%")
-      hr
-      tbody
+      a.btn.btn-primary.m-5(href='/users/newblog') Creat A Blog
+
+      //- #blogsdiv
+
+      table.table#blogsdiv.container.card(style="width:90%")
+        hr
+        tbody
 
 
       script(src='../static/project2.js')

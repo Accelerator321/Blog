@@ -261,9 +261,11 @@ app.post(`/users/newblog`, cookieChecker, upload.single('image'), (req, res) => 
         let blogData = new blog(obj)
 
         blogData.save().then(() => {
-            app.get(`/${obj.url}`,(req,res)=>{
-                console.log('end point')
-                res.render('blog.pug', obj)
+            console.log('end point')
+            console.log(obj.url);
+            app.get(`${obj.url}`,(req,res)=>{
+                
+                res.render('blog.pug', {blog:obj})
             });
             res.redirect(`/${userData.username}`)
         }

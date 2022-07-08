@@ -1,13 +1,14 @@
 extends index.pug
 
 block content
-    //- #myblog.d-flex.justify-content-center.flex-column.container-md
-    //-     h1(style='text-align:center') #{blog.title}
-    //-     img(src=`${blog.image}`, alt="...." style='width:100%;max-height:150vh;margin:auto')
-    //-     div(style='word-wrap: break-word;') #{blog.text}
-        
-    .card.d-flex.justify-content-center.flex-column.container-lg#myblog.my-4(style='background-color: #d2d2c7')
-      h1(style='text-align:center; background-color:#212529; color:white; padding:24px;' ) #{blog.title}
-      img(src=`${blog.image}`, alt='...' style='height:20rem')
-      .card-body
-        p.card-text #{blog.text}
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap', rel='stylesheet')
+
+
+    #blogbox(syle="background-color: #ececdd;")    
+      .card.d-flex.justify-content-center.flex-column#myblog.my-4.mx-5(style='background-color: #f0f0e1;border:0px;')
+        h1(style="font-family: 'Oswald', sans-serif;text-align:center; background-color:#212529; color:white;padding:24px;" ) #{blog.title}
+        img(src=`${blog.image}`, alt='...' style='max-height:65vh; width:100%; object-fit:contain;')
+        .card-body
+          p.card-text(style="font-family: 'Edu SA Beginner', cursive;font-size: 1.4rem;font-weight: 400;") #{blog.text}

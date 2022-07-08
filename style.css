@@ -21,6 +21,20 @@
     border-radius: 4px;
 }
 
+.card *{
+    color:white;
+}
+.card {
+    background: rgba(0,0,0,0.8);
+  }
+  
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .card {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  }
+
 /* 
 @media(max-width:800px){
 
@@ -39,13 +53,7 @@
 
 } */
 
-#contactform{
-    background-color: aqua;
-    opacity: 0.9;
-    border: 2px solid gray;
-    padding-bottom: 40px;
-    border-radius: 20px;
-}
+
 
 
 #checkuser{
@@ -58,3 +66,60 @@
     justify-content: center;
     }
 }
+
+#home::before{
+    content:"";
+    background: url('/static/bg-home.jpg') no-repeat center center/cover;
+    position: fixed;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.9;
+
+}
+
+
+/* _______Prodile Page Css__________ */
+
+#box::before{
+    content:"";
+    background: url('/static/bg-profile.jpg') no-repeat center center/cover;
+    position: fixed;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+
+}
+
+#smallbox li{
+    background-color: transparent;
+
+}
+
+@media(max-width:492px){
+    #profilepic{
+        margin: auto;
+    }
+}
+
+#blogbox::after{
+    content:"";
+    background: url('/static/bg-profile.jpg') no-repeat center center/cover;
+    position: fixed;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+
+  }
+
+  #blogbox *{
+    color: black;
+  }
