@@ -35,23 +35,22 @@
     }
   }
 
-/* 
+
+  
+
 @media(max-width:800px){
 
 
-    .js{
-
-        max-width: fit-content !important;
-        width: 100%;
-    }
-
-    .card img{
-       max-width: 150px;
-       max-height: 150px;
-    }
     
 
-} */
+    #cardbox img{
+        height:20vh;
+        width:100%; 
+        object-fit:contain;
+      }
+    
+
+}
 
 
 

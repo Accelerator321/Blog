@@ -21,23 +21,6 @@ var data = fetch('/user').then(res=>res.json()).then(data=>{
 
 
 
- 
-
-console.log(data)
- 
-
- 
-
-
-//   if(document.cookie){
-//     fetch('/user').then(res=>res.json()).then(json=>{
-//         if(json){
-//             userSection.innerHTML = `<a class="text-light mx-1 text-decoration-none" id="username" href="/signin">${json.username}</a><img id="profilepic" src="${json.avatar}" alt="..." style="height:40px; width:40px; border-radius:50%;"/>`
-//         }
-//     })
-//   }
-
-
     
 
 for(let item of document.querySelectorAll('.nav-item a')){

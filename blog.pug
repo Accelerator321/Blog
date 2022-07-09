@@ -11,4 +11,8 @@ block content
         h1(style="font-family: 'Oswald', sans-serif;text-align:center; background-color:#212529; color:white;padding:24px;" ) #{blog.title}
         img(src=`${blog.image}`, alt='...' style='max-height:65vh; width:100%; object-fit:contain;')
         .card-body
-          p.card-text(style="font-family: 'Edu SA Beginner', cursive;font-size: 1.4rem;font-weight: 400;") #{blog.text}
+          //- p.card-text(style="font-family: 'Edu SA Beginner', cursive;font-size: 1.4rem;font-weight: 400;") #{blog.text}
+          #url(style='display:none') #{blog.url}
+
+block script
+  script(src='../static/blog.js')

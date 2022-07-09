@@ -50,7 +50,9 @@ const blogPost = new mongoose.Schema({
     username: String,
     title: String,
     image: String,
-    text: String,
+    text: Array,
+    heading:Array,
+    pattern: String,
     url: String
 
 });
@@ -251,12 +253,15 @@ app.get(`/users/newblog`, cookieChecker, (req, res) => {
 
 app.post(`/users/newblog`, cookieChecker, upload.single('image'), (req, res) => {
     let obj = {
-        username: userData.username,
-        title: req.body.title,
-        image: path.join('static/img/', `${req.file.filename}`),
-        text: req.body.text,
-        url: `/${req.body.title.split(' ').join('-')}:${userData.username}${Date.now()}`
+        "username": userData.username,
+        "title": req.body.title,
+        "heading":req.body.heading,
+        "image": path.join('static/img/', `${req.file.filename}`),
+        "text": req.body.text,
+        "pattern":req.body.pattern,
+        "url": `/${req.body.title.split(' ').join('-')}:${userData.username}${Date.now()}`
     }
+    console.log(obj)
     if (userData) {
         let blogData = new blog(obj)
 
@@ -305,9 +310,12 @@ signUp.find({}).then(items => {
 
 blog.find({}).then(blogs=>{
     for(let blog of blogs){
-        console.log(`/${blog.title}:${blog.username}`)
         app.get(`${blog.url}`, (req,res)=>{
             res.status(201).render('blog.pug', {blog})
+        })
+        app.post(`${blog.url}`, (req,res)=>{
+
+            res.status(201).send(JSON.stringify(blog))
         })
     }
 })
