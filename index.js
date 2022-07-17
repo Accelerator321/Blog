@@ -1,7 +1,6 @@
 function myFunction(){
 
     var doc1 = document.getElementsByClassName("navitem")
-    console.log(doc1)
 
     for(var i =0; i<doc1.length; i++){
 

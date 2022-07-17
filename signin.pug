@@ -2,7 +2,7 @@ extends index.pug
 block content 
     link(rel='stylesheet' href='../static/style2.css')
     .d-flex.justify-content-center.my-5#signupform
-        form.row.g-3.container#contactform(style='max-width: 500px; height:400px;' action='/signin' method="POST")
+        form.row.g-3.container#contactform(style='max-width: 500px; height:400px;' action='/user/signin' method="POST")
             .col-md-12
                 label.form-label(for='inputEmail4') Email
                 input#inputEmail4.form-control(type='email' style='color:black;' name='email')

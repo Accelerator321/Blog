@@ -3,7 +3,7 @@ var username;
 var data = fetch('/user').then(res=>res.json()).then(data=>{
  
     if(data){
-        userSection.innerHTML = `<a class="text-light mx-1 text-decoration-none" id="username" href="/signin">${data.username}</a><img id="profilepic" src="${data.avatar}" alt="..." style="height:40px; width:40px; border-radius:50%;"/>`
+        userSection.innerHTML = `<a class="text-light mx-1 text-decoration-none" id="username" href="/user/signin">${data.username}</a><img id="profilepic" src="${data.avatar}" alt="..." style="height:40px; width:40px; border-radius:50%;"/>`
     }
     let logBtn=document.getElementById('logbtn');
     let profile=document.getElementById('profile');
@@ -73,6 +73,7 @@ const validity = fetch('/usercheck', params).then(response=>response.json()).the
     }
 
 }
+
 
 
 

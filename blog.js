@@ -1,10 +1,4 @@
-fetch(document.getElementById('url').innerHTML,{
-    method: 'POST',
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        },
-        body: ''
-}).then(res=>res.json()).then(data=>{
+fetch(`/blogcontent?getid=${document.getElementById('get').innerHTML.replace("/", "")}`).then(res=>res.json()).then(data=>{
 
             var p =0;
             var h= 0;

@@ -36,6 +36,9 @@
   }
 
 
+
+
+
   
 
 @media(max-width:800px){
@@ -121,4 +124,13 @@
 
   #blogbox *{
     color: black;
+  }
+
+
+  .navbar .btn{
+    margin-right:6px;
+  }
+
+  .navbar form{
+    margin-right:6px;
   }

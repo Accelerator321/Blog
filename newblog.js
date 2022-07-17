@@ -22,7 +22,7 @@ document.getElementById(('headbtn')).addEventListener('click', () => {
   <label class="form-label">Enter Heading</label>
   <input class="form-control" type="text" name="heading" required=""/>
 </div>`;
-document.getElementById('blogcontent').appendChild(head);
+document.getElementById('newblogdiv').appendChild(head);
     h += 1
     patt += 'h';
     document.getElementById('pattern').value = patt;
@@ -32,14 +32,24 @@ document.getElementById(('parabtn')).addEventListener('click', () => {
   let text = document.createElement("div");
     text.innerHTML = `<div class="col-md-12">
     <label class="form-label">Enter Text</label>
+    <button type="button" id="paraClose"class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
     <textarea class="form-control" rows="10" required="" name="text"></textarea>
   </div>`;
-  document.getElementById('blogcontent').appendChild(text);
+  document.getElementById('newblogdiv').appendChild(text);
     p += 1
     patt += 'p';
     document.getElementById('pattern').value = patt;
 
 })
+
+
+// document.getElementById("paraClose").addEventListener('click',()=>{
+
+// })
+
+
 
 
 

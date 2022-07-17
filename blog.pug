@@ -1,18 +1,29 @@
 extends index.pug
 
+block style 
+   link(rel='stylesheet' href='../static/blog.css')
+
 block content
     link(rel='preconnect', href='https://fonts.googleapis.com')
     link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
     link(href='https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap', rel='stylesheet')
 
 
-    #blogbox(syle="background-color: #ececdd;")    
-      .card.d-flex.justify-content-center.flex-column#myblog.my-4.mx-5(style='background-color: #f0f0e1;border:0px;')
+    #blogbox.d-flex.flex-row(syle="background-color: #ececdd;")    
+      .card.d-flex.justify-content-center.flex-column#myblog.my-4(style='background-color: #f0f0e1;border:0px;')
         h1(style="font-family: 'Oswald', sans-serif;text-align:center; background-color:#212529; color:white;padding:24px;" ) #{blog.title}
         img(src=`${blog.image}`, alt='...' style='max-height:65vh; width:100%; object-fit:contain;')
         .card-body
           //- p.card-text(style="font-family: 'Edu SA Beginner', cursive;font-size: 1.4rem;font-weight: 400;") #{blog.text}
-          #url(style='display:none') #{blog.url}
+          #get(style='display:none') #{blog.getid}
+      .card#userCard.my-3.d-flex
+          img(src=`${blog.avatar}`, alt='...' , style='height:250px; min-width:70px; max-width:250px;')
+          ul.my-3 
+           li(style="list-style:none;")
+           h3 Blog Details-
+           li Username: #{blog.username}
+           li.text-wrap posted at- #{new Date(Number(blog.getid.split(blog.username)[1]))}
+
 
 block script
   script(src='../static/blog.js')

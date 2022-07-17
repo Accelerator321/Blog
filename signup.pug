@@ -2,7 +2,7 @@ extends index.pug
 block content 
     link(rel='stylesheet' href='../static/style2.css')
     .d-flex.justify-content-center.my-5#signupform
-        form.row.g-3.container#contactform(style='max-width: 500px;' action='/signup/upload' method="POST" enctype='multipart/form-data')
+        form.row.g-3.container#contactform(style='max-width: 500px;' action='/user/signup/upload' method="POST" enctype='multipart/form-data')
             .col-md-12
                 label.form-label(for='profilePic') Profile Pic
                 input.form-control(type='file' name='profilePic' style='color:black;' required='')
