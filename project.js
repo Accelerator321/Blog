@@ -35,8 +35,15 @@ function check() {
     var user = document.getElementById('checkuser');
     var username = document.getElementById('inputUserName').value;
 
+    if(username ===""){
+        user.innerHTML = ``
+        return
+    }
+
+
     if (username.search(/ +/) !== -1){
         user.innerHTML = `<span style="color:red">Please Remove space from username</span>`
+        document.getElementById("signupbtn").disabled = true;
     }
 
     else{
@@ -57,16 +64,18 @@ function check() {
 
 
 const validity = fetch('/usercheck', params).then(response=>response.json()).then(json=>{
-    console.log(json);
+
     if (json ===true) {
 
-        user.innerHTML = `<span style="color:red">Already Exists</span>`
+        user.innerHTML = `<span style="color:red">Username Not Available</span>`
+        document.getElementById("signupbtn").disabled = true;
     }
     
     
     else if(json===false){
     
-        user.innerHTML = `<span style="color:green">Valid Username</span>`
+        user.innerHTML = `<span style="color:green">Available</span>`
+        document.getElementById("signupbtn").disabled = false;
     }
 })
 

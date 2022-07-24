@@ -10,13 +10,25 @@ fetch('/user/blogs').then(res=>res.json()).then(json=>{
 })
 
 const deletePost = (getid)=>{
-    console.log(getid)
-    params = {
+    var conf = confirm("Creat this Blog");
+  console.log(conf);
+
+  if(!conf){
+    return
+}
+    else{
+        console.log("else")
+    params = { 
         method: 'DELETE',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },
             body: JSON.stringify({getid})
         }
-    fetch('/user/deleteblog',params).then().then(()=>{location.reload()})
+    fetch('/user/deleteblog',params).then().then(()=>{location.reload()})}
 }
+
+
+
+    
+  

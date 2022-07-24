@@ -28,7 +28,7 @@ app.use(express.urlencoded({
 var userData;
 function cookieChecker(req, res, next) {
 
-console.log("app",req.cookies)
+
     if (req.cookies) {
         userData = req.cookies.userData;
         next();
@@ -68,12 +68,12 @@ app.get('/',cookieChecker, (req, res) => {
 
 app.post('/usercheck', (req, res) => {
     let obj = {
-        username: req.body.username
+        username: req.body.username.toLowerCase()
     }
 
     signUp.find(obj, (err, item) => {
         if (err) {
-            console.log(err)
+         
         }
 
         else if (item.length !== 0) {
@@ -110,7 +110,7 @@ app.get('/recentblogs', (req,res)=>{
 app.get('/getblogs',(req,res)=>{
 
     let getid  = `${req.query.getid}`;
-    console.log(getid)
+ 
 
     blog.find({getid}).then((item)=>{
 

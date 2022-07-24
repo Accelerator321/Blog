@@ -37,21 +37,25 @@
 
 
 
-
+.homecard{
+    max-width: 540px;
+}
 
   
 
 @media(max-width:800px){
 
 
-    
+    .homecard{
+        max-width: 273px;
+    }
 
-    #cardbox img{
+    /* #cardbox img{
         height:20vh;
         width:100%; 
         object-fit:contain;
       }
-    
+     */
 
 }
 
@@ -133,4 +137,36 @@
 
   .navbar form{
     margin-right:6px;
+  }
+
+.typewriter{
+    width: 208px;
+    margin: auto;
+    text-align: center;
+}
+  .typewriter h1 {
+    color: #e62fc0;
+    font-size: 39px;
+
+    overflow: hidden; 
+    
+    border-right: .15em solid orange;
+    white-space: nowrap; 
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+      typing 1s steps(7,end),
+      blink-caret .75s step-end infinite;
+  }
+  
+ 
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
   }

@@ -1,11 +1,20 @@
 extends index.pug
+
+ 
+ 
 block content 
     link(rel='stylesheet' href='../static/style2.css')
+
+   
+    .card#msg(style="color:red; text-align:center;height:40px;") #{msg}
+    
     .d-flex.justify-content-center.my-5#signupform
-        form.row.g-3.container#contactform(style='max-width: 500px;' action='/user/signup/upload' method="POST" enctype='multipart/form-data')
+        
+        form.row.g-3.container#contactform(style='max-width: 500px;' action='/user/signup' method="POST" enctype='multipart/form-data')
+
             .col-md-12
                 label.form-label(for='profilePic') Profile Pic
-                input.form-control(type='file' name='profilePic' style='color:black;' required='')
+                //- input.form-control(type='file' name='profilePic' style='color:black;' required='')
             .col-md-12
                 label.form-label(for='inputEmail4') Email
                 input#inputEmail4.form-control(type='email' style='color:black;' name='email' required='')
@@ -23,3 +32,5 @@ block content
                     | Check In
                 button.btn.btn-outline-primary#signupbtn(type='submit' style='max-width: 100px;') Sign up
 
+block script
+  script(src='../static/signup.js')

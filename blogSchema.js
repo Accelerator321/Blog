@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const blogPost = new mongoose.Schema({
     username: String,
     title: String,
-    image: String,
+    image: Array,
     text: Array,
     heading:Array,
     pattern: String,

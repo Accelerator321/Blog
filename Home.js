@@ -40,9 +40,9 @@ const showblog =(data, index)=>{
         document.querySelector('#cardbox').innerHTML = ' ';
         for (let i = index; i < index + 2; i++) {
             div = document.createElement('div');
-            div.innerHTML = `<div class="card mb-3 mx-4 my-5" style="max-width: 540px;">
+            div.innerHTML = `<div class="card mb-3 mx-4 my-5 homecard">
         <div class="row g-0">
-            <div class="col-md-4 d-flex justify-content-center"><img class="img-fluid rounded-start" style="object-fit:fill;" src="${data[i].image}" alt="..." /></div>
+            <div class="col-md-4 d-flex justify-content-center"><img class="img-fluid rounded-start" style="object-fit:fill;" src="${data[i].image[0]}" alt="..." /></div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${data[i].title}</h5>
@@ -61,9 +61,9 @@ const showblog =(data, index)=>{
         document.querySelector('#cardbox').innerHTML = ' ';
         for (let i = index; i < data.length; i++) {
             div = document.createElement('div');
-            div.innerHTML = `<div class="card mb-3 mx-4 my-5" style="max-width: 540px;">
+            div.innerHTML = `<div class="card mb-3 mx-2 my-5 homecard">
         <div class="row g-0">
-            <div class="col-md-4 d-flex justify-content-center"><img class="img-fluid rounded-start" style="object-fit:fill;max-height: 200px;max-width: fit-content;" src="${data[i].image}" alt="..." /></div>
+            <div class="col-md-4 d-flex justify-content-center"><img class="img-fluid rounded-start" style="object-fit:fill;max-height: 200px;max-width: fit-content;" src="${data[i].image[0]}" alt="..." /></div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${data[i].title}</h5>
@@ -71,7 +71,7 @@ const showblog =(data, index)=>{
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     
                 </div>
-            </div>
+            </div> 
         </div>
     </div>`;
             document.querySelector('#cardbox').appendChild(div);
