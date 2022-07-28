@@ -9,12 +9,12 @@ fetch(`/blogcontent?getid=${document.getElementById('get').innerHTML.replace("/"
         if(data.pattern[i].includes("p")){
             var val =document.getElementById('myblog').innerHTML;
             
-            document.getElementById('myblog').innerHTML = val+ `<p class="card-text" style="font-family: 'Edu SA Beginner', cursive;font-size: 1.4rem;font-weight: 400;">${data.text[p]}</p>`;
+            document.getElementById('myblog').innerHTML = val+ `<p class="card-text" style="font-family: 'Edu SA Beginner', cursive;font-size: 1.4rem;font-weight: 400;margin: 20px 1em;">${data.text[p]}</p>`;
             p++;
         }
         else if(data.pattern[i].includes('h')){
             var val =document.getElementById('myblog').innerHTML;
-            document.getElementById('myblog').innerHTML = val+ `<h2 class="card-text" style="font-family: 'Edu SA Beginner', cursive;">${data.heading[h]}</h2>`;
+            document.getElementById('myblog').innerHTML = val+ `<h2 class="card-text" style="font-family: 'Edu SA Beginner', cursive; margin: 20px 1em;">${data.heading[h]}</h2>`;
             h++;
         }
         else if(data.pattern[i].includes('i')){

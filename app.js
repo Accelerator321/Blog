@@ -97,12 +97,28 @@ app.listen(port, () => {
 });
 
 
+app.get("/totalpage",(req,res)=>{
+    blog.find().count().then(tblogs=>{
+        if(tblogs <2){
+        res.send(JSON.stringify(tblogs))}
+        else{
+            res.send(JSON.stringify(tblogs%2==0?tblogs:parseInt(tblogs/2)+1))
+        }
+    })
+})
 
 app.get('/recentblogs', (req,res)=>{
-    // var i = Number(req.query.i)
+    var page = Number(req.query.page)
     blog.find({}).then(blogs=>{
-        res.send(JSON.stringify(blogs))
+        res.send(JSON.stringify(blogs.reverse().slice( page*2 -2, page*2)));
+        
     })
+
+    
+    
+    
+
+
 })
 
 

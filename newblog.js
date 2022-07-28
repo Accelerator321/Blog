@@ -27,7 +27,7 @@ document.getElementById(('headbtn')).addEventListener('click', () => {
   <label class="form-label">Enter Heading</label>
   <button type="button" id="closeBtn"class="close" onclick="erase(event)"data-dismiss="alert" aria-label="Close">&times
   </button>
-  <input class="form-control" type="text" id="h-${h}" name="heading" required=""/>
+  <input class="form-control" type="text" id="h-${h}" onchange="Filevalidation(event)" name="heading" required=""/>
 </div>`;
 document.getElementById('newblogdiv').appendChild(head);
     
@@ -84,7 +84,27 @@ document.getElementById("creatbtn").addEventListener('click',(e)=>{
 
 })
 
+function fileValidation(event){
 
+  const fi = event.target;
+ 
+  if (fi.files.length > 0) {
+      for (const i = 0; i <= fi.files.length - 1; i++) {
+
+          const fsize = fi.files.item(i).size;
+          const file = Math.round((fsize / 1024));
+   
+          if (file >= 2048) {
+              alert(
+                "File too Big, please select a file less than 4mb");
+                event.target.value='';
+          }  else {
+                document.getElementById('size').innerHTML = '<b>'
+                + file + '</b> KB';
+            }
+        }
+    }
+}
 
 
 

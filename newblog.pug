@@ -14,7 +14,8 @@ block content
                     input.form-control(type='text' name='title' required='')
                 .col-md-12
                     label.form-label Add Image
-                    input.form-control(type='file' required='' name='image')
+                    input.form-control(type='file' onchange="fileValidation(event)" required='' name='image')
+                    #size
                 
                 .col-md-12
                     label.form-label Enter Text
