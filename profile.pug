@@ -1,5 +1,7 @@
 extend index.pug
 //- static/img/1656071606915-geass.png
+block style
+  link(rel='stylesheet' href='../static/profile.css')
 block content 
       
 
@@ -15,9 +17,8 @@ block content
 
       //- #blogsdiv
 
-      table.table#blogsdiv.container.card(style="width:90%")
-        hr
-        tbody
+      #blogsdiv.d-flex.flex-row.flex-wrap
+       
 
 
       script(src='../static/profile.js')

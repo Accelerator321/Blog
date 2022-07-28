@@ -12,10 +12,10 @@
     text-decoration: none;
     color: black;
 }
-.card .row{
+/* .card .row{
     display:flex;
     flex-direction: row-reverse;
-}
+} */
  .card img{
     height: 100%;
     border-radius: 4px;
@@ -35,29 +35,14 @@
     }
   }
 
-
+/* 
 
 .homecard{
     max-width: 540px;
-}
+} */
 
   
 
-@media(max-width:800px){
-
-
-    .homecard{
-        max-width: 273px;
-    }
-
-    /* #cardbox img{
-        height:20vh;
-        width:100%; 
-        object-fit:contain;
-      }
-     */
-
-}
 
 
 
@@ -67,11 +52,15 @@
     height:10px
 }
 
-@media(max-width: 1175px){
-    #cardbox{
-    justify-content: center;
-    }
-}
+#cardbox{
+  justify-content: space-evenly;
+  }
+
+/* @media(max-width: 767px){
+  .card{
+    max-height: none !important;
+  }
+} */
 
 #home::before{
     content:"";
@@ -130,7 +119,7 @@
     color: black;
   }
 
-
+  
   .navbar .btn{
     margin-right:6px;
   }
@@ -148,7 +137,7 @@
     color: #e62fc0;
     font-size: 39px;
 
-    overflow: hidden; 
+    overflow: visible; 
     
     border-right: .15em solid orange;
     white-space: nowrap; 
@@ -169,4 +158,74 @@
   @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: orange; }
+  }
+
+
+  #next{
+    width: 70px;
+    background-color: #e62fc0;
+    color: white;
+    border-color:#e62fc0; 
+    border-radius: 15px ;
+  }
+
+  #next:hover{
+    background: transparent;
+    color:#e62fc0;
+    
+    
+  }
+  #prev{
+    width: 70px;
+    background-color: #e62fc0;
+    color: white;
+    border-color:#e62fc0; 
+    border-radius: 15px ;
+  }
+
+  #prev:hover{
+    background: transparent;
+    color:#e62fc0;
+    
+    
+  }
+
+
+  #searchlist{
+    background-color: white;
+    max-width: 222px;
+
+    position: absolute;
+    width: 100%;
+    top:47px;
+    border: 2px solid blue;
+border-radius: 5px;
+  }
+
+  @media(max-width:991px){
+
+    #searchlist{
+      position: relative;
+      top: 0px;
+    }
+  }
+
+  .hcard{
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media(max-width:560px){
+    .hcard{
+      flex-direction: column;
+    }
+    .rcard{
+      width: 70%;
+    }
+  }
+  @media(max-width:260px){
+    
+    .rcard{
+      width: 100%;
+    }
   }

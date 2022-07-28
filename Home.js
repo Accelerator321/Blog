@@ -139,19 +139,36 @@ const showblog = async()=>{
     document.querySelector('#cardbox').innerHTML = ' ';
         for (let i = 0; i < 2; i++) {
             div = document.createElement('div');
-            div.innerHTML = `<div class="card mb-3 mx-4 my-5 homecard">
-        <div class="row g-0">
-            <div class="col-md-4 d-flex justify-content-center"><img class="img-fluid rounded-start" style="object-fit:fill;" src="${data[i].image[0]}" alt="..." /></div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">${data[i].title}</h5>
-                    <p class="card-text">${data[i].text[0].slice(0, 150)}...<a href="/getblogs?getid=${data[i].getid}" style="color:#b38c80;">Read More</a></p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    
+            div.setAttribute('class', 'card mb-3 rcard')
+            div.style.maxWidth = '540px';
+            div.innerHTML =`
+            <div class="hcard krow no-gutters">
+              <div class="col-md-4" style="max-height:190px">
+                <img src="${data[i].image[0]}" class="card-img"alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body" style="min-height: 192px; max-height:450px;">
+                  <h5 class="card-title">${data[i].title}</h5>
+                  <p class="card-text">${data[i].text[0].slice(0, 150)}...<a href="/getblogs?getid=${data[i].getid}" style="color:#b38c80;">Read More</a></p>
+                  
                 </div>
-            </div>
-        </div>
-    </div>`;
+              </div>
+            </div>`
+            
+            
+    //         `<div class="card mb-3 mx-4 my-5 homecard">
+    //     <div class="row g-0">
+    //         <div class="col-md-4 d-flex justify-content-center"><img class="img-fluid rounded-start" style="object-fit:fill;" src="${data[i].image[0]}" alt="..." /></div>
+    //         <div class="col-md-8">
+    //             <div class="card-body">
+    //                 <h5 class="card-title">${data[i].title}</h5>
+    //                 <p class="card-text">${data[i].text[0].slice(0, 150)}...<a href="/getblogs?getid=${data[i].getid}" style="color:#b38c80;">Read More</a></p>
+    //                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    
+    //             </div>
+    //         </div>
+    //     </div>
+    // </div>`;
             document.querySelector('#cardbox').appendChild(div);
         }
 }

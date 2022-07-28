@@ -4,9 +4,22 @@ fetch(`/user/blogs?username=${document.getElementById('username').innerHTML.spli
     
 
     for(let item of json.blogs.reverse()){
-        let val = document.querySelector('#blogsdiv tbody').innerHTML
+        let val = document.querySelector('#blogsdiv').innerHTML
 
-    document.querySelector('#blogsdiv tbody').innerHTML = val+ `<tr><td><a href='/getblogs?getid=${item.getid}'>${item.title}</a></td>`
+    document.querySelector('#blogsdiv').innerHTML = val+ `<div class="card mb-3 rcard" style="max-width:540px;">
+    <div class="hcard krow no-gutters">
+      <div class="col-md-4" style="max-height:190px">
+        <img src="${item.image[0]}" class="card-img"alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="min-height: 192px; max-height:450px;">
+          <h5 class="card-title">${item.title}</h5>
+          <p class="card-text">${item.text[0].slice(0, 150)}...<a href="/getblogs?getid=${item.getid}" style="color:#b38c80;">Read More</a></p>
+          
+        </div>
+      </div>
+    </div>
+  </div>`
 }
 })
 

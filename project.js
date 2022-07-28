@@ -83,6 +83,34 @@ const validity = fetch('/usercheck', params).then(response=>response.json()).the
 
 }
 
+function hide(){
+    document.getElementById('searchlist').style.display ='none';
+}
+
+hide()
+async function search(e){
+
+    document.getElementById('searchlist').innerHTML = '';
+
+    document.getElementById('searchlist').style.display ='initial';
+
+    if(e.target.value.trim() ===""){
+        document.getElementById('searchlist').innerHTML = '';
+        return
+    }
+
+
+
+    data = await fetch(`/search?search=${e.target.value}`).then(res=>res.json());
+
+    for(let i =0; i<data.length;i++){
+        div = document.createElement('div')
+        div.style.border = '1px solid black';
+        div.setAttribute('class', 'card');
+        div.innerHTML = `${data[i].title}`
+        document.getElementById('searchlist').appendChild(div)
+    }
+}
 
 
 

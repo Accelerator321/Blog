@@ -151,4 +151,15 @@ app.get('/blogcontent',(req,res)=>{
 
 })
 
+app.get("/search",(req,res)=>{
+
+    console.log(req.query)
+
+    console.log('serachbar')
+    blog.find({"title": { "$regex": req.query.search, "$options": "i" }}).then(blogs=>{
+        res.send(JSON.stringify(blogs))
+        console.log(blogs)}
+        )
+})
+
 

@@ -6,11 +6,17 @@ fetch('/user/blogs').then(res=>res.json()).then(json=>{
     for(let item of json.blogs.reverse()){
         let val = document.querySelector('#blogsdiv tbody').innerHTML
 
-    document.querySelector('#blogsdiv tbody').innerHTML = val+ `<tr><td><a href='/getblogs?getid=${item.getid}'>${item.title}</a></td><td>Edit</td><td><a  onclick="deletePost('${item.getid}')"  style="cursor:pointer;" class='delete'>Delete</a><td/></tr>`}
+    document.querySelector('#blogsdiv tbody').innerHTML = val+ `<tr>
+        <td>
+    <a><img src="${item.image[0]}" style="height:50px;width:50px;border-radius: 50%;"></a>
+    <a href='/getblogs?getid=${item.getid}'>${item.title}</a></td>
+    <td><a class="btn btn-outline-danger" onclick="deletePost('${item.getid}','${item.title}')"  style="cursor:pointer;" class='delete'>Delete</a>
+    <td/>
+    </tr>`}
 })
 
-const deletePost = (getid)=>{
-    var conf = confirm("Creat this Blog");
+const deletePost = (getid,title)=>{
+    var conf = confirm(`Delete this Blog- ${title}`);
   console.log(conf);
 
   if(!conf){
