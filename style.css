@@ -1,39 +1,54 @@
-
-*{
-    margin: 0px;
+* {
+  margin: 0px;
 }
 
-.white{
-    color: white;
+.white {
+  color: white;
 }
 
 
-#cardbox a{
-    text-decoration: none;
-    color: black;
+#cardbox a {
+  text-decoration: none;
+  color: black;
 }
+
 /* .card .row{
     display:flex;
     flex-direction: row-reverse;
 } */
- .card img{
-    height: 100%;
-    border-radius: 4px;
+.card img {
+  height: 100%;
+  border-radius: 4px;
 }
 
-.card *{
-    color:white;
+.card * {
+  color: white;
 }
+
 .card {
-    background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .card {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
-  
-  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    .card {
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
+  .glass{
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
   }
+  }
+
+
+
+.glass{
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.dropdown *{
+  color:white;
+}
 
 /* 
 
@@ -41,20 +56,20 @@
     max-width: 540px;
 } */
 
-  
 
 
 
 
 
-#checkuser{
-    margin: 2px;
-    height:10px
+
+#checkuser {
+  margin: 2px;
+  height: 10px
 }
 
-#cardbox{
+#cardbox {
   justify-content: space-evenly;
-  }
+}
 
 /* @media(max-width: 767px){
   .card{
@@ -62,170 +77,207 @@
   }
 } */
 
-#home::before{
-    content:"";
-    background: url('/static/bg-home.jpg') no-repeat center center/cover;
-    position: fixed;
-    top:0px;
-    left:0px;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.9;
+#home::before {
+  content: "";
+  background: url('/static/bg-home.jpg') no-repeat center center/cover;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.9;
 
 }
 
 
 /* _______Prodile Page Css__________ */
 
-#box::before{
-    content:"";
-    background: url('/static/bg-profile.jpg') no-repeat center center/cover;
-    position: fixed;
-    top:0px;
-    left:0px;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.8;
+#box::before {
+  content: "";
+  background: url('/static/bg-profile.jpg') no-repeat center center/cover;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.8;
 
 }
 
-#smallbox li{
-    background-color: transparent;
+#smallbox li {
+  background-color: transparent;
 
 }
 
-@media(max-width:492px){
-    #profilepic{
-        margin: auto;
-    }
-}
-
-#blogbox::after{
-    content:"";
-    background: url('/static/bg-profile.jpg') no-repeat center center/cover;
-    position: fixed;
-    top:0px;
-    left:0px;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.8;
-
-  }
-
-  #blogbox *{
-    color: black;
-  }
-
-  
-  .navbar .btn{
-    margin-right:6px;
-  }
-
-  .navbar form{
-    margin-right:6px;
-  }
-
-.typewriter{
-    width: 208px;
+@media(max-width:492px) {
+  #profilepic {
     margin: auto;
-    text-align: center;
+  }
 }
-  .typewriter h1 {
-    color: #e62fc0;
-    font-size: 39px;
 
-    overflow: visible; 
-    
-    border-right: .15em solid orange;
-    white-space: nowrap; 
-    margin: 0 auto;
-    letter-spacing: .15em;
-    animation: 
-      typing 1s steps(7,end),
-      blink-caret .75s step-end infinite;
+#smallbox * {
+  word-break: break-word;
+}
+
+#blogbox::after {
+  content: "";
+  background: url('/static/bg-profile.jpg') no-repeat center center/cover;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.8;
+
+}
+
+#blogbox * {
+  color: black;
+}
+
+
+.navbar .btn {
+  margin-right: 6px;
+}
+
+.navbar form {
+  margin-right: 6px;
+}
+
+.typewriter {
+  width: 208px;
+  margin: auto;
+  text-align: center;
+}
+
+.typewriter h1 {
+  color: #e62fc0;
+  font-size: 39px;
+
+  overflow: visible;
+
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+    typing 1s steps(7, end),
+    blink-caret .75s step-end infinite;
+}
+
+
+@keyframes typing {
+  from {
+    width: 0
   }
-  
- 
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+
+  to {
+    width: 100%
   }
-  
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-  }
+}
 
 
-  #next{
-    width: 70px;
-    background-color: #e62fc0;
-    color: white;
-    border-color:#e62fc0; 
-    border-radius: 15px ;
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
   }
 
-  #next:hover{
-    background: transparent;
-    color:#e62fc0;
-    
-    
+  50% {
+    border-color: orange;
   }
-  #prev{
-    width: 70px;
-    background-color: #e62fc0;
-    color: white;
-    border-color:#e62fc0; 
-    border-radius: 15px ;
+}
+
+
+#next {
+  width: 70px;
+  background-color: #e62fc0;
+  color: white;
+  border-color: #e62fc0;
+  border-radius: 15px;
+}
+
+#next:hover {
+  background: transparent;
+  color: #e62fc0;
+
+
+}
+
+#prev {
+  width: 70px;
+  background-color: #e62fc0;
+  color: white;
+  border-color: #e62fc0;
+  border-radius: 15px;
+}
+
+#prev:hover {
+  background: transparent;
+  color: #e62fc0;
+
+
+}
+
+#searchlist *{
+  color:white
+}
+
+
+#searchlist {
+
+  max-width: 339px;
+  background-color: #d7c9cb;
+  border: none !important;
+
+  position: absolute;
+  width: 100%;
+  top: 47px;
+  right: 130px;
+  border-radius: 8px;
+  padding-left: 19px;
+  margin-top: 7px;
+  z-index: 100;
+}
+
+#searchlist img{
+  margin:3px;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+@media(max-width:991px) {
+
+  #searchlist {
+    position: relative;
+    top: 0px;
+    left:0px
+  }
+}
+
+.hcard {
+  display: flex;
+  flex-direction: row;
+}
+
+@media(max-width:560px) {
+  .hcard {
+    flex-direction: column;
   }
 
-  #prev:hover{
-    background: transparent;
-    color:#e62fc0;
-    
-    
+  .rcard {
+    width: 70%;
   }
+}
 
+@media(max-width:260px) {
 
-  #searchlist{
-    background-color: white;
-    max-width: 222px;
-
-    position: absolute;
+  .rcard {
     width: 100%;
-    top:47px;
-    border: 2px solid blue;
-border-radius: 5px;
   }
-
-  @media(max-width:991px){
-
-    #searchlist{
-      position: relative;
-      top: 0px;
-    }
-  }
-
-  .hcard{
-    display: flex;
-    flex-direction: row;
-  }
-
-  @media(max-width:560px){
-    .hcard{
-      flex-direction: column;
-    }
-    .rcard{
-      width: 70%;
-    }
-  }
-  @media(max-width:260px){
-    
-    .rcard{
-      width: 100%;
-    }
-  }
+}

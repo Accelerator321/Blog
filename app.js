@@ -99,10 +99,10 @@ app.listen(port, () => {
 
 app.get("/totalpage",(req,res)=>{
     blog.find().count().then(tblogs=>{
-        if(tblogs <2){
-        res.send(JSON.stringify(tblogs))}
+        if(tblogs <10){
+        res.send(JSON.stringify(1))}
         else{
-            res.send(JSON.stringify(tblogs%2==0?tblogs:parseInt(tblogs/2)+1))
+            res.send(JSON.stringify(tblogs%10==0?tblogs:parseInt(tblogs/10)+1))
         }
     })
 })
@@ -110,7 +110,7 @@ app.get("/totalpage",(req,res)=>{
 app.get('/recentblogs', (req,res)=>{
     var page = Number(req.query.page)
     blog.find({}).then(blogs=>{
-        res.send(JSON.stringify(blogs.reverse().slice( page*2 -2, page*2)));
+        res.send(JSON.stringify(blogs.reverse().slice( page*10 -10, page*10)));
         
     })
 
@@ -153,13 +153,31 @@ app.get('/blogcontent',(req,res)=>{
 
 app.get("/search",(req,res)=>{
 
-    console.log(req.query)
-
-    console.log('serachbar')
+  
     blog.find({"title": { "$regex": req.query.search, "$options": "i" }}).then(blogs=>{
-        res.send(JSON.stringify(blogs))
-        console.log(blogs)}
+        
+        let obj = []
+        let end=10;
+
+        if(blogs.length<10){
+            end=blogs.length;
+        }
+        for(let i=0; i<end;i++){
+            obj.push({"image":[blogs[i].image[0]],"title":blogs[i].title, "username":blogs[i].username,"getid":blogs[i].getid})
+        }
+        res.send(JSON.stringify(obj))}
+
         )
 })
+app.get("/results",(req,res)=>{
+
+
+
+        res.render('results.pug',{"query":req.query.search})
+}
+       
+ 
+        )
+
 
 

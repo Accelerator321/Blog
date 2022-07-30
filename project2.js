@@ -9,7 +9,7 @@ fetch('/user/blogs').then(res=>res.json()).then(json=>{
     document.querySelector('#blogsdiv tbody').innerHTML = val+ `<tr>
         <td>
     <a><img src="${item.image[0]}" style="height:50px;width:50px;border-radius: 50%;"></a>
-    <a href='/getblogs?getid=${item.getid}'>${item.title}</a></td>
+    <a href='/getblogs?getid=${item.getid}' style="word-break:break-all;">${item.title}</a></td>
     <td><a class="btn btn-outline-danger" onclick="deletePost('${item.getid}','${item.title}')"  style="cursor:pointer;" class='delete'>Delete</a>
     <td/>
     </tr>`}

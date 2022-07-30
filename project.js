@@ -1,3 +1,5 @@
+
+
 let userSection=document.getElementById('usersection');
 var username;
 var data = fetch('/user').then(res=>res.json()).then(data=>{
@@ -17,18 +19,15 @@ var data = fetch('/user').then(res=>res.json()).then(data=>{
     if(data){
        signBtn.style.display = 'none'
     }
+
+    if(data){
+        document.getElementById("menu").style.display = 'initial';
+    }
 })
 
 
 
-    
 
-for(let item of document.querySelectorAll('.nav-item a')){
-    item.addEventListener('click', ()=>{
-        document.getElementsByClassName('active')[0].classList.toggle('active')
-        item.classList.toggle('active')
-    })
-}
 function check() {
     
 
@@ -88,31 +87,48 @@ function hide(){
 }
 
 hide()
-async function search(e){
+async function searchitem(e){
+    let searchlist = document.getElementById('searchlist');
+    searchlist.innerHTML = '';
 
-    document.getElementById('searchlist').innerHTML = '';
-
-    document.getElementById('searchlist').style.display ='initial';
+    searchlist.style.display ='initial';
 
     if(e.target.value.trim() ===""){
-        document.getElementById('searchlist').innerHTML = '';
+        searchlist.innerHTML = '';
         return
     }
 
-
+    dummy = document.createElement('div')
+    dummy.innerHTML = `<div class="my-3">Showing results for- ${e.target.value}</div>`
+    
+    
 
     data = await fetch(`/search?search=${e.target.value}`).then(res=>res.json());
+    searchlist.appendChild(dummy);
+
 
     for(let i =0; i<data.length;i++){
         div = document.createElement('div')
-        div.style.border = '1px solid black';
-        div.setAttribute('class', 'card');
-        div.innerHTML = `${data[i].title}`
-        document.getElementById('searchlist').appendChild(div)
+       
+        div.innerHTML = `<a href="/getblogs?getid=${data[i].getid}" style="text-decoration:none;"><span><img src="${data[i].image[0]}"></span>${data[i].title} <div  style="margin-top:3px;font-size:0.8rem; color:pink;">Posted By-${data[i].username}</div></a><hr/>`;
+        searchlist.appendChild(div);
     }
+    div = document.createElement('div');
+    div.style.textAlign ='center';
+    div.style.paddingBottom='10px';
+    div.innerHTML = `<a href="/results?search=${e.target.value}">See all results</a>`;
+    searchlist.appendChild(div);
 }
 
 
+document.getElementById('logbtn').addEventListener('click',(e)=>{
+
+    let conf = confirm("Are you sure u want to log out");
+
+    if(!conf){
+        e.preventDefault()
+    }
+})
 
 
 

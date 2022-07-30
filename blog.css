@@ -22,7 +22,11 @@
     flex-wrap: wrap;
 }
 
-
+@media(max-width:354px){
+    #userCard{
+        flex-direction: column !important;
+    }
+}
 @media(max-width:954px){
     #blogbox{
         flex-direction: column;

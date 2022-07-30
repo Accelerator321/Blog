@@ -5,9 +5,9 @@ block style
 block content 
       
 
-      .card.my-2.d-flex.flex-wrap#profileblock(style='max-width: 50rem;margin:auto;')
+      .card.my-2#profileblock(style='max-width: 50rem;margin:auto;')
         #box.d-inline-flex.flex-wrap
-          img#profilepic(src=`${user.avatar}`, alt='...' , style='height:250px; min-width:70px; max-width:250px;')
+          img#profilepic(src=`${user.avatar}`, alt='...' , style='min-width:70px; max-width:250px;')
           #smallbox.mx-2.d-flex.flex-column
               ul.list-group.list-group-flush
                 li.list-group-item#username Username: #{user.username}
@@ -21,4 +21,5 @@ block content
        
 
 
+    
       script(src='../static/profile.js')

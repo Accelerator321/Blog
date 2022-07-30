@@ -33,4 +33,7 @@ block content
                 button.btn.btn-outline-primary#signupbtn(type='submit' style='max-width: 100px;') Sign up
 
 block script
+  script.
+        document.getElementsByClassName('active')[0].classList.toggle("active");
+        document.getElementById("register").classList.toggle("active");
   script(src='../static/signup.js')

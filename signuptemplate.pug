@@ -5,15 +5,15 @@ block content
       
 
 
-      .card.my-2.d-flex.flex-wrap#profileblock(style='max-width: 50rem;margin:auto;')
+      .card.my-2#profileblock(style='max-width: 50rem;margin:auto;')
         #box.d-inline-flex.flex-wrap
-          img#profilepic(src=`${user.avatar}`, alt='...' , style='height:250px; min-width:70px; max-width:250px;')
+          img#profilepic(src=`${user.avatar}`, alt='...' , style='min-width:70px; max-width:250px;')
           #smallbox.mx-2.d-flex.flex-column
               ul.list-group.list-group-flush
                 li.list-group-item#username Username: #{user.username}
                 li.list-group-item Email : #{user.email}
 
-      a.btn.btn-primary.m-5(href='/user/newblog') Creat A Blog
+      a.btn.btn-outline-primary.m-5.glass(href='/user/newblog') Creat A Blog
 
       //- #blogsdiv
 
@@ -23,3 +23,7 @@ block content
 
 
       script(src='../static/project2.js')
+         
+      script.
+        document.getElementsByClassName('active')[0].classList.toggle("active");
+        document.getElementById("profile").classList.toggle("active");

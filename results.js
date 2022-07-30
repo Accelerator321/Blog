@@ -1,71 +1,17 @@
-var i = 10;
-var page = 1;
-
-
-
-var tpage;
-
-function checkpage(){
-if(page ==1){
-    document.getElementById('prev').style.display ='none';
-}
-else{
-    document.getElementById('prev').style.display ='initial';
-}
-if(tpage){
-
-    if(page==tpage){
-        document.getElementById('next').style.display = 'none';
-    }
-    else{
-        document.getElementById('next').style.display = 'initial';
-    }
-}
-
-}
-
-fetch('/totalpage').then(res=>res.json()).then(pages=>{
-    tpage = parseInt(pages);
-    console.log(pages);
-    checkpage();
-})
-
-
-
-
-document.getElementById('next').addEventListener('click',()=>{
-    page +=1;
-    showblog();
-    checkpage();
-   
-    
-    
-})
-document.getElementById('prev').addEventListener('click',()=>{
-    page -=1;
-    showblog();
-    checkpage();
-
-    
-})
-
-
 const showblog = async()=>{
-    var data = await fetch(`/recentblogs?page=${page}`).then(res => res.json())
+    console.log("results")
+    console.log(`${document.getElementById("query").innerHTML}`)
+    var data = await fetch(`/search?search=${document.getElementById("query").innerHTML}`).then(res => res.json())
     document.querySelector('#cardbox').innerHTML = ' ';
-        let end =10;
-        if (data.length <10){
-            end = data.length;
-        }
 
-        for (let i = 0; i < end; i++) {
+        for (let i = 0; i < data.length; i++) {
             div = document.createElement('div');
             div.setAttribute('class', 'card mb-3 rcard')
             div.style.maxWidth = '540px';
             div.innerHTML =`
             <div class="hcard krow no-gutters">
               <div class="col-md-4" style="max-height:190px">
-                <a href="/getblogs?getid=${data[i].getid}">
+              <a href="/getblogs?getid=${data[i].getid}">
                 <img src="${data[i].image[0]}" class="card-img"alt="..."></a>
               </div>
               <div class="col-md-8">
@@ -83,3 +29,4 @@ const showblog = async()=>{
 }
 
 showblog();
+

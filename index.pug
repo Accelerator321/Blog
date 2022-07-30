@@ -9,7 +9,7 @@ head
 block style
 body 
 
-    nav.navbar.navbar-expand-lg.bg-dark.navbar-dark
+    nav.navbar.navbar-expand-lg.bg-dark.navbar-dark.glass
       .container-fluid
         a.navbar-brand(href='#') JBlogs
         button.navbar-toggler.white(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
@@ -19,31 +19,32 @@ body
             li.nav-item
               a.nav-link.active(aria-current='page', href='/') Home
             li.nav-item
-              a.nav-link(href='/user/signup') Get Registered
+              a.nav-link#register(href='/user/signup') Get Registered
             li.nav-item
               a.nav-link#profile(href='/user/signin') My Profile
             
-            li.nav-item.dropdown
+            li.nav-item.dropdown#menu(style="display:none;")
                 a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-bs-toggle='dropdown', aria-expanded='false')
-                    | Dropdown
-                ul.dropdown-menu(aria-labelledby='navbarDropdown')
+                    | Menu
+                ul.dropdown-menu.glass(aria-labelledby='navbarDropdown')
                     li
-                        a.dropdown-item(href='#') Action
+                        a.dropdown-item(href='#') Creat Blog
                     li
-                    a.dropdown-item(href='#') Another action
+                    a.dropdown-item(href='#') Delete Blog
                     li
                         hr.dropdown-divider
                     li
-                        a.dropdown-item(href='#') Something else here
+                        a.dropdown-item(href='#') My BLOGS
+                    li 
+                      a.btn.btn-outline-danger.mx-2.my-2#logbtn(href='/user/logout') Logout
           
-          form.d-flex.mb-2.mr-2.d-flex.flex-column(role='search' method="GET", action="/search")
+          form.d-flex.mb-2.mr-2.d-flex.flex-column(role='search' method="GET", action="/results" onblur = 'hide()')
             div.d-flex.flex-row
-              input.form-control.me-2(type='search', placeholder='Search',oninput="search(event)", 
-              onblur = 'hide()' style="max-width:222px",aria-label='Search')
+              input.form-control.me-2(type='search', name='search' placeholder='Search',oninput="searchitem(event)", 
+               style="max-width:222px",aria-label='Search', autocomplete="off")
               button.btn.btn-outline-success(type='submit') Search
-            #searchlist
+            #searchlist.glass
           a.btn.btn-outline-primary.mb-2#signbtn(href='/user/signin') Sign in
-          a.btn.btn-outline-primary.mb-2#logbtn(href='/user/logout') Logout
           #usersection.my-2.ml-2
           
 
@@ -56,17 +57,7 @@ body
         .col-md-6.d-flex.align-items-center.col-12
             a.mb-3.me-2.mb-md-0.text-muted.text-decoration-none.lh-1(href='/')
             span.mb-3.mb-md-0.text-muted &copy; 2022 Company, Inc
-        //- ul.nav.col-md-6.justify-content-md-end.list-unstyled.d-flex.flex-wrap-justify-content-sm-between.col-12
-            //- li.ms-3.mx-5
-            //- a.text-muted(href='#')
-            //-     img(src='/static/py.webp' alt='....' height='20px')
-            //- li.ms-3.mx-5
-            //- a.text-muted(href='#')
-            //-     img(src='/static/c++.png' alt='....' height='20px')
-            //- li.ms-3.mx-5
-            //- a.text-muted(href='#')
-            //-     img(src='/static/js.png' alt='....' height='20px')
-
+       
     block script
 script(src='../static/project.js')
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js', integrity='sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2', crossorigin='anonymous')
